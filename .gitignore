@@ -1,5 +1,22 @@
 .env
+.env.lab
+.env.local
 node_modules
 dist
 
+# Runtime data lab
+data/
+database.sqlite
+database.sqlite-wal
+database.sqlite-shm
+server-output.log
+uploads/
+logs/
+exports/
+backups/
+tmp/
+lab/evidence/
 
+# OS/editor
+.DS_Store
+Thumbs.db

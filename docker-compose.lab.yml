@@ -1,0 +1,26 @@
+services:
+  bank-ubs-lab:
+    build: .
+    container_name: bank-ubs-lab
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: production
+      LAB_HOST: 0.0.0.0
+      LAB_PROFILE: extreme
+      DATA_DIR: /app/data
+      PORT: "3001"
+      JWT_SECRET: labsecret
+      INTERNAL_API_KEY: internal-lab-key-123
+      SMTP_PASSWORD: smtp-lab-password
+      LAB_EVIDENCE_RETENTION_DAYS: "30"
+      LAB_RACE_DELAY_MS: "150"
+    volumes:
+      - lab-data:/app/data
+      - lab-evidence:/app/lab/evidence
+    init: true
+    restart: unless-stopped
+
+volumes:
+  lab-data:
+  lab-evidence:
